@@ -13,7 +13,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500&family=Pinyon+Script&family=Noto+Naskh+Arabic:wght@700&family=Marcellus&family=Great+Vibes&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500&family=Pinyon+Script&family=Noto+Naskh+Arabic:wght@400&family=Marcellus&family=Great+Vibes&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 /* Layout: six A4 sheets (210 x 297), one per screen, alternating ink and paper on a dark desk. Every size inside a sheet scales with the sheet's width. */
 :root{
@@ -88,11 +88,11 @@ h1,h2,h3,p{margin:0}
 #p2 .top{position:absolute;top:clamp(28px,7vw,56px);left:0;right:0;margin-inline:auto;width:min(100%,520px);display:flex;flex-direction:column;align-items:center;gap:3cqw;container-type:inline-size;z-index:2}
 #p2 .top .bismillah{width:34cqw}
 #p2 .top .lead{font-size:3cqw;letter-spacing:.26em;text-transform:uppercase;line-height:1.9;margin-right:-.26em}
-#p2 .top .ar{font-family:'Noto Naskh Arabic','Amiri',serif;font-weight:700;color:#6f6c68;font-size:6.2cqw;line-height:1.5;margin:0;direction:rtl}
+#p2 .top .ar{font-family:'Noto Naskh Arabic','Amiri',serif;font-weight:400;color:#6f6c68;font-size:3.6cqw;line-height:1.5;margin:0;direction:rtl}
 #p2 .and{display:block;width:36cqw;height:auto;margin:1.2cqw 0}
 #p2 .date2{font-size:.66em;letter-spacing:.3em}
 #p2{--fw:min(36vw,200px);padding-top:clamp(130px,32vw,210px);padding-bottom:calc(var(--fw)*1.45)}
-@media (max-width:600px){#p2 .top .ar{font-size:4.6cqw}#p2{--fw:24vw}#p2 .names .script{font-size:1.9em}#p2 .and{width:30cqw}}
+@media (max-width:600px){#p2 .top .ar{font-size:3cqw}#p2{--fw:24vw}#p2 .names .script{font-size:1.9em}#p2 .and{width:30cqw}}
 #p2 .flora{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:var(--fw);height:auto;pointer-events:none;z-index:1}
 #p2{background:radial-gradient(ellipse 70% 45% at 12% 8%,rgba(185,173,160,.28),transparent 70%),radial-gradient(ellipse 60% 40% at 95% 30%,rgba(216,209,200,.55),transparent 70%),radial-gradient(ellipse 80% 50% at 20% 95%,rgba(185,173,160,.22),transparent 70%),radial-gradient(ellipse 50% 35% at 85% 85%,rgba(233,227,218,.8),transparent 70%),#F3EFE9}
 .names{display:flex;flex-direction:column;align-items:center;gap:.1em}
@@ -253,7 +253,8 @@ h1,h2,h3,p{margin:0}
         </g>
         <g transform="translate(205 118)">
           <ellipse cx="0" cy="40" rx="14" ry="4" fill="#393531" opacity=".22"/>
-          <path d="M0 40 C -22 14 -22 -2 -22 -10 a22 22 0 1 1 44 0 C 22 -2 22 14 0 40Z" fill="#393531"/>
+          <circle cx="0" cy="-10" r="22" fill="#393531"/>
+          <path d="M-18 4 C -12 18 -6 30 0 40 C 6 30 12 18 18 4Z" fill="#393531"/>
           <circle cx="0" cy="-10" r="8" fill="#F5F2ED"/>
         </g>
       </svg>
