@@ -127,6 +127,7 @@ h1,h2,h3,p{margin:0}
 .time::before,.time::after{content:"";width:8cqw;height:1px;background:var(--line-light)}
 .map{width:100%;border:1px solid var(--line-light);background:var(--paper-2)}
 .map svg{display:block;width:100%;height:auto;pointer-events:none;shape-rendering:geometricPrecision;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.maplink{display:block;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .btn,.btn:active,.btn:focus{-webkit-tap-highlight-color:transparent}
 .btn{-webkit-appearance:none;appearance:none;touch-action:manipulation;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;min-height:44px;text-decoration:none;font-family:var(--sans);cursor:pointer;padding:0 2em;font-size:.62em;letter-spacing:.28em;text-transform:uppercase;font-weight:500;border:1px solid transparent;transition:background .35s ease,color .35s ease,border-color .35s ease}
 /* primary: charcoal with ivory text */
@@ -238,7 +239,7 @@ h1,h2,h3,p{margin:0}
     <p class="label rv">The Venue</p>
     <h2 class="script venue-name rv">Sana Occasion Centre</h2>
     <p class="time rv">11:00 AM – 2:00 PM</p>
-    <div class="map">
+    <div class="map"><a class="maplink" href="https://www.google.com/maps?cid=17921714869845489181" target="_blank" rel="noopener" aria-label="Open Sana Occasion Centre in Google Maps">
       <svg viewBox="0 0 400 270" role="img" aria-label="Map showing the location of Sana Occasion Centre">
         <rect width="400" height="270" fill="#E9E3DA"/>
         <path d="M-10 60 C 80 40, 140 90, 230 70 S 360 20, 420 50 L420 -10 L-10 -10Z" fill="#D8D1C8"/>
@@ -258,8 +259,7 @@ h1,h2,h3,p{margin:0}
           <path d="M-18 4 C -12 18 -6 30 0 40 C 6 30 12 18 18 4Z" fill="#393531"/>
           <circle cx="0" cy="-10" r="8" fill="#F5F2ED"/>
         </g>
-      </svg>
-    </div>
+      </svg></a></div>
     <a class="btn rv" href="https://www.google.com/maps?cid=17921714869845489181" target="_blank" rel="noopener">How to get there</a>
   </div>
 </div></section>
