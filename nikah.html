@@ -126,14 +126,15 @@ h1,h2,h3,p{margin:0}
 .time{display:flex;align-items:center;gap:3cqw;font-family:var(--display);letter-spacing:.14em;font-size:.95em;text-transform:uppercase}
 .time::before,.time::after{content:"";width:8cqw;height:1px;background:var(--line-light)}
 .map{width:100%;border:1px solid var(--line-light);background:var(--paper-2)}
-.map svg{display:block;width:100%;height:auto}
+.map svg{display:block;width:100%;height:auto;pointer-events:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.btn,.btn:active,.btn:focus{-webkit-tap-highlight-color:transparent}
 .btn{-webkit-appearance:none;appearance:none;touch-action:manipulation;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;min-height:44px;text-decoration:none;font-family:var(--sans);cursor:pointer;padding:0 2em;font-size:.62em;letter-spacing:.28em;text-transform:uppercase;font-weight:500;border:1px solid transparent;transition:background .35s ease,color .35s ease,border-color .35s ease}
 /* primary: charcoal with ivory text */
 .light .btn{background:var(--desk);color:var(--paper);border-color:var(--desk)}
-.light .btn:hover{background:var(--hover);color:var(--text);border-color:var(--text)}
+@media (hover:hover){.light .btn:hover{background:var(--hover);color:var(--text);border-color:var(--text)}}
 /* secondary: transparent with beige border */
 .dark .btn{background:transparent;color:var(--paper);border-color:var(--accent)}
-.dark .btn:hover{background:var(--hover);color:var(--text);border-color:var(--hover)}
+@media (hover:hover){.dark .btn:hover{background:var(--hover);color:var(--text);border-color:var(--hover)}}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 /* PAGE 5: envelope with the invitation card, opens in a modal */
