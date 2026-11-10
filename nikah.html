@@ -183,6 +183,19 @@ h1,h2,h3,p{margin:0}
 
 </head>
 <body>
+<style>
+#enter{position:fixed;inset:0;z-index:10000;background:var(--desk);color:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px;cursor:pointer;transition:opacity .7s ease,visibility .7s}
+#enter.gone{opacity:0;visibility:hidden;pointer-events:none}
+#enter .t{font-family:var(--display);font-style:italic;font-size:clamp(28px,8vw,44px);line-height:1.15}
+#enter .d{font-family:var(--sans);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--ash)}
+#enter .b{margin-top:10px;padding:12px 28px;border:1px solid var(--accent);color:var(--paper);font-family:var(--sans);font-size:12px;letter-spacing:.28em;text-transform:uppercase;background:transparent;border-radius:999px;cursor:pointer}
+</style>
+<div id="enter" role="button" aria-label="Open invitation">
+  <div class="d">You are invited</div>
+  <div class="t">We're Getting Married</div>
+  <div class="d">22 · 11 · 2026</div>
+  <button class="b" type="button">Tap to open</button>
+</div>
 <div class="grain" aria-hidden="true"></div>
 <div class="veil" id="veil" aria-hidden="true"></div>
 
@@ -418,6 +431,13 @@ h1,h2,h3,p{margin:0}
   function on(){bgm.play().then(function(){btn.className='on'}).catch(function(){})}
   function off(){bgm.pause();btn.className='off'}
   var userPaused=false;
+  var enter=document.getElementById('enter');
+  function openInv(){
+    if(!enter||enter.classList.contains('gone'))return;
+    bgm.play().then(function(){btn.className='on'}).catch(function(){});
+    enter.classList.add('gone');document.documentElement.style.overflow='';
+  }
+  if(enter){document.documentElement.style.overflow='hidden';enter.addEventListener("click",openInv)}
   btn.addEventListener('click',function(e){e.stopPropagation();if(bgm.paused){userPaused=false;on()}else{userPaused=true;off()}});
   /* try to autoplay immediately; browsers usually block it until the visitor interacts */
   on();
