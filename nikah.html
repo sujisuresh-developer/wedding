@@ -403,13 +403,20 @@ h1,h2,h3,p{margin:0}
 </script>
 
 <audio id="bgm" src="music/audio.mpeg" loop preload="auto"></audio>
-<button id="musicBtn" aria-label="Toggle music"
-  style="position:fixed;bottom:18px;right:18px;z-index:9999;width:46px;height:46px;border-radius:50%;border:none;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.25);font-size:20px;cursor:pointer">🎵</button>
+<style>
+#musicBtn{position:fixed;left:14px;bottom:14px;z-index:9999;width:40px;height:40px;border-radius:50%;border:0;padding:0;background:#2b3245;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:.9;transition:opacity .2s,transform .2s}
+#musicBtn svg{width:50%;height:50%;fill:currentColor}
+#musicBtn.off{opacity:.65}
+#musicBtn.on{animation:bgmPulse 2.4s ease-in-out infinite}
+@keyframes bgmPulse{50%{transform:scale(1.08)}}
+@media(max-width:600px){#musicBtn{width:32px;height:32px;left:10px;bottom:10px}}
+</style>
+<button id="musicBtn" class="off" aria-label="Toggle music"><svg viewBox="0 0 24 24"><path d="M9 3v11.3A3.5 3.5 0 1 0 11 17.5V8h6V3H9z"/></svg></button>
 <script>
 (function(){
   var bgm=document.getElementById('bgm'), btn=document.getElementById('musicBtn');
-  function on(){bgm.play().then(function(){btn.textContent='🔊'}).catch(function(){})}
-  function off(){bgm.pause();btn.textContent='🎵'}
+  function on(){bgm.play().then(function(){btn.className='on'}).catch(function(){})}
+  function off(){bgm.pause();btn.className='off'}
   btn.addEventListener('click',function(e){e.stopPropagation();bgm.paused?on():off()});
   /* browsers block autoplay, so start on the visitor's first tap */
   document.addEventListener('click',function(){if(bgm.paused)on()},{once:true});
