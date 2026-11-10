@@ -417,9 +417,17 @@ h1,h2,h3,p{margin:0}
   var bgm=document.getElementById('bgm'), btn=document.getElementById('musicBtn');
   function on(){bgm.play().then(function(){btn.className='on'}).catch(function(){})}
   function off(){bgm.pause();btn.className='off'}
-  btn.addEventListener('click',function(e){e.stopPropagation();bgm.paused?on():off()});
-  /* browsers block autoplay, so start on the visitor's first tap */
-  document.addEventListener('click',function(){if(bgm.paused)on()},{once:true});
+  var userPaused=false;
+  btn.addEventListener('click',function(e){e.stopPropagation();if(bgm.paused){userPaused=false;on()}else{userPaused=true;off()}});
+  /* try to autoplay immediately; browsers usually block it until the visitor interacts */
+  on();
+  /* fallback: start on the first tap/touch/key/scroll-gesture, then stop listening */
+  var evs=['pointerdown','touchstart','touchend','click','keydown','wheel'];
+  function kick(e){
+    if(userPaused||e.target===btn)return;
+    bgm.play().then(function(){btn.className='on';evs.forEach(function(n){document.removeEventListener(n,kick,true)})}).catch(function(){});
+  }
+  evs.forEach(function(n){document.addEventListener(n,kick,true)});
 })();
 </script>
 
